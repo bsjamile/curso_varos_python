@@ -10,11 +10,24 @@ pv = float(input('Digite a quantidade de dinheiro inicial do investimentos: '))
 n = int(input('Por quantos meses você vai deixar o valor investido? '))
 taxa = float(input('Qual a taxa de retorno do seu investimento? (% por mês) '))
 salario_desejado = float(input('Digite o salário mensal que você quer receber ao se aposentar: '))
+aporte_mensal = float(input('Aporte mensal: '))
 
 taxa = taxa/100
+
+tempo_final= 0
+
+while n < tempo_final:
+  pv += aporte_mensal
+  tempo_final += 1
 
 fv = round(pv * (1+taxa)**n,2)
 print('---------------------------------')
 
 print(f'Parabéns, {nome}! Daqui a {n} meses você terá o valor total de R${fv}')
 
+salario_mensal = fv * taxa
+
+if salario_mensal >= salario_desejado:
+  print(f'Parabéns! Você conseguiu alcançar R${round(salario_mensal,2)}! O salário desejado era R${salario_desejado}!')
+else:
+  print(f'Com o salário mensal lde R${round(salario_mensal,2)} você ainda não alcança o salário desejado de R${salario_desejado}. Invista mais um pouco!!')
