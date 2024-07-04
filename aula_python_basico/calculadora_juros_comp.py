@@ -16,11 +16,18 @@ taxa = taxa/100
 
 tempo_final= 0
 
-while n < tempo_final:
-  pv += aporte_mensal
-  tempo_final += 1
+while tempo_final < n:
 
-fv = round(pv * (1+taxa)**n,2)
+  if tempo_final == 0:
+    fv = round(pv * (1+taxa),2)
+    tempo_final += 1
+  else:
+    fv = round((fv+aporte_mensal) * (1+taxa),2)
+    tempo_final += 1
+  
+fv = fv + aporte_mensal
+
+
 print('---------------------------------')
 
 print(f'Parabéns, {nome}! Daqui a {n} meses você terá o valor total de R${fv}')
